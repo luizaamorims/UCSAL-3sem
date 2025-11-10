@@ -1,4 +1,4 @@
-package EstruturaDados.TrabalhoPratico;
+package EstruturaDados.Trabalho1;
 
 public class No {
 

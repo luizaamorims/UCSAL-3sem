@@ -1,8 +1,8 @@
 package EstruturaDados.Trabalho2;
 
 public class Jogador {
-    int vitalidade;
-    No localizacaoAtual;
+   private int vitalidade;
+   private No localizacaoAtual;
 
     public Jogador(No posicaoInicial) {
         this.vitalidade = 100;
@@ -10,30 +10,37 @@ public class Jogador {
     }
 
     public void moverEsquerda() {
-        if (localizacaoAtual.esquerda != null) {
-            localizacaoAtual = localizacaoAtual.esquerda;
+        if (localizacaoAtual.getEsquerda() != null) {
+            localizacaoAtual = localizacaoAtual.getEsquerda();
             aplicarAlteracaoVitalidade();
         }
     }
 
     public void moverDireita() {
-        if (localizacaoAtual.direita != null) {
-            localizacaoAtual = localizacaoAtual.direita;
+        if (localizacaoAtual.getDireita() != null) {
+            localizacaoAtual = localizacaoAtual.getDireita();
             aplicarAlteracaoVitalidade();
         }
     }
 
     public void voltar() {
-        if (localizacaoAtual.pai != null) {
-            localizacaoAtual = localizacaoAtual.pai;
+        if (localizacaoAtual.getPai() != null) {
+            localizacaoAtual = localizacaoAtual.getPai();
             aplicarAlteracaoVitalidade();
         }
     }
 
     private void aplicarAlteracaoVitalidade() {
-        vitalidade += localizacaoAtual.alteracaoVitalidade;
+        vitalidade += localizacaoAtual.getAlteracaoVitalidade();
         if (vitalidade > 100) {
             vitalidade = 100;
+        }
+    }
+
+    public void receberDano(int dano) {
+        vitalidade -= dano;
+        if (vitalidade < 0) {
+            vitalidade = 0;
         }
     }
 
@@ -42,13 +49,14 @@ public class Jogador {
     }
 
     public boolean encontrouTesouro() {
-        return localizacaoAtual.temTesouro;
+        return localizacaoAtual.isTemTesouro();
     }
 
-    public void receberDano(int dano) {
-        vitalidade -= dano;
-        if (vitalidade < 0) {
-            vitalidade = 0;
-        }
+    public int getVitalidade() {
+        return vitalidade;
+    }
+
+    public No getLocalizacaoAtual() {
+        return localizacaoAtual;
     }
 }

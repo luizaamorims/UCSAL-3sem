@@ -1,7 +1,7 @@
 package EstruturaDados.Trabalho2;
 
 public class MapaArvore {
-    No raiz;
+    private No raiz;
 
     public MapaArvore() {
         construirMapa();
@@ -44,29 +44,29 @@ public class MapaArvore {
                 "Você caiu em uma armadilha! Lanças e flechas voam em sua direção!",
                 -30, false, true);
 
-        raiz.esquerda = clareira;
-        clareira.pai = raiz;
+        raiz.setEsquerda(clareira);
+        clareira.setPai(raiz);
 
-        raiz.direita = pântano;
-        pântano.pai = raiz;
+        raiz.setDireita(pântano);
+        pântano.setPai(raiz);
 
-        clareira.esquerda = caverna;
-        caverna.pai = clareira;
+        clareira.setEsquerda(caverna);
+        caverna.setPai(clareira);
 
-        clareira.direita = rio;
-        rio.pai = clareira;
+        clareira.setDireita(rio);
+        rio.setPai(clareira);
 
-        pântano.esquerda = aldeiaAbandonada;
-        aldeiaAbandonada.pai = pântano;
+        pântano.setEsquerda(aldeiaAbandonada);
+        aldeiaAbandonada.setPai(pântano);
 
-        pântano.direita = templo;
-        templo.pai = pântano;
+        pântano.setDireita(templo);
+        templo.setPai(pântano);
 
-        rio.esquerda = tesouroLocal;
-        tesouroLocal.pai = rio;
+        rio.setEsquerda(tesouroLocal);
+        tesouroLocal.setPai(rio);
 
-        templo.direita = armadilha;
-        armadilha.pai = templo;
+        templo.setDireita(armadilha);
+        armadilha.setPai(templo);
     }
 
     public No getRaiz() {

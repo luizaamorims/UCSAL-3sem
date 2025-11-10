@@ -19,22 +19,20 @@ public class CacaAoTesouro {
         boolean jogoAtivo = true;
 
         while (jogoAtivo) {
-            No localAtual = jogador.localizacaoAtual;
+            No localAtual = jogador.getLocalizacaoAtual();
 
-            System.out.println();
-            System.out.println(" 📍 " + localAtual.nome);
-            System.out.println();
-            System.out.println(localAtual.descricao);
+            System.out.println("\n--- " + localAtual.getNome() + " ---");
+            System.out.println(localAtual.getDescricao());
 
-            if (localAtual.alteracaoVitalidade > 0) {
-                System.out.println("Você ganhou " + localAtual.alteracaoVitalidade + " pontos de vitalidade!");
-            } else if (localAtual.alteracaoVitalidade < 0 && !localAtual.temArmadilha) {
-                System.out.println("Você perdeu " + Math.abs(localAtual.alteracaoVitalidade) + " pontos de vitalidade!");
+            if (localAtual.getAlteracaoVitalidade() > 0) {
+                System.out.println("Você ganhou " + localAtual.getAlteracaoVitalidade() + " pontos de vitalidade!");
+            } else if (localAtual.getAlteracaoVitalidade() < 0 && !localAtual.isTemArmadilha()) {
+                System.out.println("Você perdeu " + Math.abs(localAtual.getAlteracaoVitalidade()) + " pontos de vitalidade!");
             }
 
-            System.out.println("\nVitalidade atual: " + jogador.vitalidade + "/100");
+            System.out.println("\nVitalidade atual: " + jogador.getVitalidade() + "/100");
 
-            if (localAtual.temArmadilha) {
+            if (localAtual.isTemArmadilha()) {
                 scanner.nextLine();
                 if (!SistemaArmadilha.armadilha(jogador, scanner)) {
                     jogoAtivo = false;
@@ -43,36 +41,36 @@ public class CacaAoTesouro {
             }
 
             if (jogador.encontrouTesouro()) {
-                System.out.println();
-                System.out.println("  *** PARABÉNS! VOCÊ VENCEU! ***");
-                System.out.println();
+                System.out.println("\n========================================");
+                System.out.println("   *** PARABÉNS! VOCÊ VENCEU! ***");
+                System.out.println("========================================");
                 System.out.println("Você encontrou o tesouro e completou");
-                System.out.println("a jornada com " + jogador.vitalidade + " de vitalidade!");
-                System.out.println();
+                System.out.println("a jornada com " + jogador.getVitalidade() + " de vitalidade!");
+                System.out.println("========================================");
                 jogoAtivo = false;
                 break;
             }
 
             if (!jogador.estaVivo()) {
-                System.out.println();
-                System.out.println(" *** GAME OVER ***");
-                System.out.println();
+                System.out.println("\n========================================");
+                System.out.println("      *** GAME OVER ***");
+                System.out.println("========================================");
                 System.out.println("Sua vitalidade chegou a zero!");
                 System.out.println("Você não conseguiu encontrar o tesouro.");
-                System.out.println();
+                System.out.println("========================================");
                 jogoAtivo = false;
                 break;
             }
 
-            System.out.println("Escolha seu caminho");
+            System.out.println("\nEscolha seu caminho");
 
-            if (localAtual.esquerda != null) {
+            if (localAtual.getEsquerda() != null) {
                 System.out.println("1. Seguir pela esquerda");
             }
-            if (localAtual.direita != null) {
+            if (localAtual.getDireita() != null) {
                 System.out.println("2. Seguir pela direita");
             }
-            if (localAtual.pai != null) {
+            if (localAtual.getPai() != null) {
                 System.out.println("3. Voltar");
             }
             System.out.println("4. Sair do jogo");
@@ -83,28 +81,28 @@ public class CacaAoTesouro {
 
             switch (escolha) {
                 case 1:
-                    if (localAtual.esquerda != null) {
+                    if (localAtual.getEsquerda() != null) {
                         jogador.moverEsquerda();
                     } else {
                         System.out.println("\nNão há caminho à esquerda!");
                     }
                     break;
                 case 2:
-                    if (localAtual.direita != null) {
+                    if (localAtual.getDireita() != null) {
                         jogador.moverDireita();
                     } else {
                         System.out.println("\nNão há caminho à direita!");
                     }
                     break;
                 case 3:
-                    if (localAtual.pai != null) {
+                    if (localAtual.getPai() != null) {
                         jogador.voltar();
                     } else {
                         System.out.println("\nVocê já está no início! Não pode voltar.");
                     }
                     break;
                 case 4:
-                    System.out.println("\nObrigado por jogar");
+                    System.out.println("\nObrigado por jogar! :) ");
                     jogoAtivo = false;
                     break;
                 default:
@@ -114,5 +112,4 @@ public class CacaAoTesouro {
 
         scanner.close();
     }
-
 }
