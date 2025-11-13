@@ -1,4 +1,4 @@
-package BancoDeDados;
+package BancoDeDados.Models;
 
 public class Proprietario {
     private String cpf;

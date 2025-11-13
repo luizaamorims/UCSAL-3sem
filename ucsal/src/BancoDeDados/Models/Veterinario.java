@@ -1,4 +1,4 @@
-package BancoDeDados;
+package BancoDeDados.Models;
 
 public class Veterinario {
     private String crmv;

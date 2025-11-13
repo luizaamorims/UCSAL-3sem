@@ -1,4 +1,4 @@
-package BancoDeDados;
+package BancoDeDados.Models;
 
 import java.time.LocalDateTime;
 
