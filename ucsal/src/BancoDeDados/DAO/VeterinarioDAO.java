@@ -10,7 +10,6 @@ import java.util.List;
 public class VeterinarioDAO {
 
 
-    // CREATE
     public void inserir(Veterinario vet) throws SQLException {
         String sql = "INSERT INTO Veterinario (crmv, nome, especialidade, telefone) VALUES (?, ?, ?, ?)";
 
@@ -27,7 +26,7 @@ public class VeterinarioDAO {
         }
     }
 
-    // READ - Buscar por CRMV
+
     public Veterinario buscarPorCrmv(String crmv) throws SQLException {
         String sql = "SELECT * FROM Veterinario WHERE crmv = ?";
 
@@ -49,7 +48,7 @@ public class VeterinarioDAO {
         return null;
     }
 
-    // READ - Listar todos
+
     public List<Veterinario> listarTodos() throws SQLException {
         List<Veterinario> lista = new ArrayList<>();
         String sql = "SELECT * FROM Veterinario ORDER BY nome";
@@ -70,7 +69,7 @@ public class VeterinarioDAO {
         return lista;
     }
 
-    // UPDATE
+
     public void atualizar(Veterinario vet) throws SQLException {
         String sql = "UPDATE Veterinario SET nome = ?, especialidade = ?, telefone = ? WHERE crmv = ?";
 
@@ -91,7 +90,7 @@ public class VeterinarioDAO {
         }
     }
 
-    // DELETE
+
     public void deletar(String crmv) throws SQLException {
         String sql = "DELETE FROM Veterinario WHERE crmv = ?";
 

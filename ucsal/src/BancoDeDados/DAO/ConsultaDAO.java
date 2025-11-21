@@ -33,7 +33,7 @@ public class ConsultaDAO {
         return -1;
     }
 
-    // READ - Buscar consultas por animal
+
     public List<Consulta> buscarPorAnimal(int idAnimal) throws SQLException {
         List<Consulta> lista = new ArrayList<>();
         String sql = "SELECT * FROM Consulta WHERE id_animal = ? ORDER BY data_hora DESC";
@@ -58,7 +58,7 @@ public class ConsultaDAO {
         return lista;
     }
 
-    // READ - Relatório completo de consulta
+
     public void gerarRelatorioConsulta(int idConsulta) throws SQLException {
         String sql = "SELECT c.id_consulta, c.data_hora, c.diagnostico, c.valor, " +
                 "a.nome AS animal_nome, a.especie, a.raca, " +
@@ -77,7 +77,7 @@ public class ConsultaDAO {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                System.out.println("\n========== RELATÓRIO DA CONSULTA ==========");
+                System.out.println("\n------- RELATÓRIO DA CONSULTA -------");
                 System.out.println("ID Consulta: " + rs.getInt("id_consulta"));
                 System.out.println("Data/Hora: " + rs.getTimestamp("data_hora"));
                 System.out.println("\nAnimal: " + rs.getString("animal_nome"));
@@ -88,12 +88,12 @@ public class ConsultaDAO {
                 System.out.println("Especialidade: " + rs.getString("especialidade"));
                 System.out.println("\nDiagnóstico: " + rs.getString("diagnostico"));
                 System.out.println("Valor: R$ " + String.format("%.2f", rs.getDouble("valor")));
-                System.out.println("==========================================\n");
+                System.out.println("-------------------------------------------------\n");
             }
         }
     }
 
-    // UPDATE
+
     public void atualizar(Consulta consulta) throws SQLException {
         String sql = "UPDATE Consulta SET diagnostico = ?, valor = ? WHERE id_consulta = ?";
 
@@ -113,7 +113,7 @@ public class ConsultaDAO {
         }
     }
 
-    // DELETE
+
     public void deletar(int id) throws SQLException {
         String sql = "DELETE FROM Consulta WHERE id_consulta = ?";
 

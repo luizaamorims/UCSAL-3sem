@@ -27,7 +27,7 @@ public class ProprietarioDAO {
         }
     }
 
-    // READ - Buscar por CPF
+
     public Proprietario buscarPorCpf(String cpf) throws SQLException {
         String sql = "SELECT * FROM Proprietario WHERE cpf = ?";
 
@@ -50,7 +50,7 @@ public class ProprietarioDAO {
         return null;
     }
 
-    // READ - Listar todos
+
     public List<Proprietario> listarTodos() throws SQLException {
         List<Proprietario> lista = new ArrayList<>();
         String sql = "SELECT * FROM Proprietario ORDER BY nome";
@@ -72,7 +72,7 @@ public class ProprietarioDAO {
         return lista;
     }
 
-    // UPDATE
+
     public void atualizar(Proprietario prop) throws SQLException {
         String sql = "UPDATE Proprietario SET nome = ?, telefone = ?, endereco = ?, email = ? WHERE cpf = ?";
 
@@ -94,7 +94,7 @@ public class ProprietarioDAO {
         }
     }
 
-    // DELETE
+
     public void deletar(String cpf) throws SQLException {
         String sql = "DELETE FROM Proprietario WHERE cpf = ?";
 

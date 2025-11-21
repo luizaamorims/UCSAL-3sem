@@ -86,7 +86,7 @@ public class ClinicaVeterinaria {
     }
 
     private static void exibirMenu() {
-        System.out.println("\n===== MENU PRINCIPAL =====");
+        System.out.println("\n---- MENU PRINCIPAL ----");
         System.out.println("CADASTROS:");
         System.out.println("1 - Cadastrar Proprietário");
         System.out.println("2 - Cadastrar Animal");
@@ -108,7 +108,7 @@ public class ClinicaVeterinaria {
     }
 
     private static void cadastrarProprietario() throws Exception {
-        System.out.println("\n=== CADASTRO DE PROPRIETÁRIO ===");
+        System.out.println("\n--- CADASTRO DE PROPRIETÁRIO ---");
         System.out.print("CPF (11 dígitos): ");
         String cpf = scanner.nextLine();
         System.out.print("Nome: ");
@@ -125,7 +125,7 @@ public class ClinicaVeterinaria {
     }
 
     private static void cadastrarAnimal() throws Exception {
-        System.out.println("\n=== CADASTRO DE ANIMAL ===");
+        System.out.println("\n--- CADASTRO DE ANIMAL ---");
         System.out.print("Nome do animal: ");
         String nome = scanner.nextLine();
         System.out.print("Espécie: ");
@@ -144,7 +144,7 @@ public class ClinicaVeterinaria {
     }
 
     private static void cadastrarVeterinario() throws Exception {
-        System.out.println("\n=== CADASTRO DE VETERINÁRIO ===");
+        System.out.println("\n--- CADASTRO DE VETERINÁRIO ---");
         System.out.print("CRMV: ");
         String crmv = scanner.nextLine();
         System.out.print("Nome: ");
@@ -159,7 +159,7 @@ public class ClinicaVeterinaria {
     }
 
     private static void cadastrarConsulta() throws Exception {
-        System.out.println("\n=== CADASTRO DE CONSULTA ===");
+        System.out.println("\n--- CADASTRO DE CONSULTA ---");
         System.out.print("ID do animal: ");
         int idAnimal = Integer.parseInt(scanner.nextLine());
         System.out.print("CRMV do veterinário: ");

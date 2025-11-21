@@ -35,7 +35,7 @@ public class AnimalDAO {
         return -1;
     }
 
-    // READ - Buscar por ID
+
     public Animal buscarPorId(int id) throws SQLException {
         String sql = "SELECT * FROM Animal WHERE id_animal = ?";
 
@@ -60,7 +60,7 @@ public class AnimalDAO {
         return null;
     }
 
-    // READ - Listar por proprietário
+
     public List<Animal> listarPorProprietario(String cpf) throws SQLException {
         List<Animal> lista = new ArrayList<>();
         String sql = "SELECT * FROM Animal WHERE cpf_proprietario = ? ORDER BY nome";
@@ -86,7 +86,7 @@ public class AnimalDAO {
         return lista;
     }
 
-    // UPDATE
+
     public void atualizar(Animal animal) throws SQLException {
         String sql = "UPDATE Animal SET nome = ?, especie = ?, raca = ?, " +
                 "data_nascimento = ?, peso = ? WHERE id_animal = ?";
@@ -110,7 +110,7 @@ public class AnimalDAO {
         }
     }
 
-    // DELETE
+
     public void deletar(int id) throws SQLException {
         String sql = "DELETE FROM Animal WHERE id_animal = ?";
 
